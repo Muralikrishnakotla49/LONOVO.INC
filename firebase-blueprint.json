@@ -1,0 +1,124 @@
+{
+  "entities": {
+    "Employee": {
+      "title": "Employee",
+      "description": "Details about employees including base salary, overtime rates, and status.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "initials": { "type": "string" },
+        "avatarColor": { "type": "string" },
+        "baseSalary": { "type": "number" },
+        "overtimeHours": { "type": "number" },
+        "overtimeRate": { "type": "number" },
+        "deductionRate": { "type": "number" },
+        "department": { "type": "string" },
+        "role": { "type": "string" },
+        "status": { "type": "string", "enum": ["Active", "Inactive"] },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "bankName": { "type": "string" },
+        "bankAccount": { "type": "string" },
+        "bankRouting": { "type": "string" },
+        "passcode": { "type": "string" }
+      },
+      "required": ["id", "name", "baseSalary", "overtimeHours", "overtimeRate", "deductionRate", "department", "role", "status"]
+    },
+    "PayrollBatch": {
+      "title": "PayrollBatch",
+      "description": "Details of a payroll processing batch for a particular period.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "period": { "type": "string" },
+        "status": { "type": "string", "enum": ["Review Hours", "Calculate Deductions", "Finalize Payout"] },
+        "totalEmployees": { "type": "number" },
+        "grossAmount": { "type": "number" },
+        "deductionsAmount": { "type": "number" },
+        "overtimeAmount": { "type": "number" },
+        "netAmount": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "authorizedBy": { "type": "string" },
+        "authorizedAt": { "type": "string" },
+        "isCompleted": { "type": "boolean" }
+      },
+      "required": ["id", "name", "period", "status", "totalEmployees", "grossAmount", "deductionsAmount", "overtimeAmount", "netAmount", "createdAt", "isCompleted"]
+    },
+    "AttendanceRecord": {
+      "title": "AttendanceRecord",
+      "description": "Clock-in and clock-out details for employees.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "employeeId": { "type": "string" },
+        "employeeName": { "type": "string" },
+        "date": { "type": "string" },
+        "clockIn": { "type": "string" },
+        "clockOut": { "type": "string" },
+        "totalHours": { "type": "number" },
+        "status": { "type": "string", "enum": ["On Time", "Late", "Absent", "Half Day"] }
+      },
+      "required": ["id", "employeeId", "employeeName", "date", "clockIn", "clockOut", "totalHours", "status"]
+    },
+    "PayoutLog": {
+      "title": "PayoutLog",
+      "description": "Details of completed fund transfers / payout actions.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "batchId": { "type": "string" },
+        "batchName": { "type": "string" },
+        "period": { "type": "string" },
+        "amount": { "type": "number" },
+        "authorizedBy": { "type": "string" },
+        "authorizedAt": { "type": "string" },
+        "referenceNumber": { "type": "string" },
+        "bankName": { "type": "string" }
+      },
+      "required": ["id", "batchId", "batchName", "period", "amount", "authorizedBy", "authorizedAt", "referenceNumber", "bankName"]
+    },
+    "SystemSettings": {
+      "title": "SystemSettings",
+      "description": "Local system parameters for payroll administration.",
+      "type": "object",
+      "properties": {
+        "companyName": { "type": "string" },
+        "currencySymbol": { "type": "string" },
+        "overtimeMultiplier": { "type": "number" },
+        "taxRatePercent": { "type": "number" },
+        "healthInsurancePercent": { "type": "number" },
+        "pensionPercent": { "type": "number" },
+        "svbBankConnected": { "type": "boolean" },
+        "authorizedOfficerName": { "type": "string" },
+        "authorizedOfficerRole": { "type": "string" },
+        "lastSyncTime": { "type": "string" }
+      },
+      "required": ["companyName", "currencySymbol", "overtimeMultiplier", "taxRatePercent", "healthInsurancePercent", "pensionPercent", "svbBankConnected", "authorizedOfficerName", "authorizedOfficerRole", "lastSyncTime"]
+    }
+  },
+  "firestore": {
+    "employees": {
+      "schema": "Employee",
+      "description": "Set of company employees under management."
+    },
+    "batches": {
+      "schema": "PayrollBatch",
+      "description": "Periodical payroll processing batches."
+    },
+    "attendance": {
+      "schema": "AttendanceRecord",
+      "description": "Daily employee attendance tracking entries."
+    },
+    "payout_logs": {
+      "schema": "PayoutLog",
+      "description": "Authorized payout audits."
+    },
+    "settings": {
+      "schema": "SystemSettings",
+      "description": "System config details."
+    }
+  }
+}

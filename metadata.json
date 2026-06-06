@@ -1,0 +1,6 @@
+{
+  "name": "ClockWork AI",
+  "description": "Enterprise-ready, high-durability payroll processing and attendance tracking engine featuring real-time compliance validation, transaction authorization, and automated calculation pipelines.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

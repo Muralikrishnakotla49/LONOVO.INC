@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-geist: "Geist", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom palette defined in Clean Minimalism guidelines */
+  --color-surface-bg: #F9FAFB;
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #4B5563;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #F3F4F6;
+  --color-surface-container: #E5E7EB;
+  
+  --color-primary-brand: #4F46E5;
+  --color-primary-dark: #4338CA;
+  
+  --color-surface-subtle: #F9FAFB;
+  --color-border-subtle: #E5E7EB;
+  --color-text-muted: #6B7280;
+  
+  --color-success-bg: #F0FDF4;
+  --color-success-text: #15803D;
+  --color-warning-bg: #FFFBEB;
+  --color-warning-text: #B45309;
+  
+  /* Map standard colors used in components for Clean Minimalism */
+  --color-blue-50: #EEF2FF;
+  --color-blue-100: #E0E7FF;
+  --color-blue-200: #C7D2FE;
+  --color-blue-600: #4F46E5;
+  --color-blue-700: #4338CA;
+  --color-blue-800: #3730A3;
+  --color-blue-900: #312E81;
+  
+  --color-indigo-50: #EEF2FF;
+  --color-indigo-100: #E0E7FF;
+  --color-indigo-600: #4F46E5;
+  --color-indigo-700: #4338CA;
+  
+  --color-slate-50: #F9FAFB;
+  --color-slate-100: #F3F4F6;
+  --color-slate-200: #E5E7EB;
+  --color-slate-300: #D1D5DB;
+  --color-slate-400: #9CA3AF;
+  --color-slate-500: #6B7280;
+  --color-slate-550: #4B5563;
+  --color-slate-600: #4B5563;
+  --color-slate-700: #374151;
+  --color-slate-705: #374151;
+  --color-slate-800: #1F2937;
+  --color-slate-900: #111827;
+  --color-slate-950: #030712;
+
+  --shadow-soft-depth: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+
+  --radius-sm: 0.375rem;
+  --radius-default: 0.5rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 0.75rem;
+}
+
+/* Custom visual utilities to align with invisible utility style */
+@layer base {
+  body {
+    @apply bg-[var(--color-surface-bg)] text-[var(--color-on-surface)] font-sans antialiased selection:bg-blue-100 selection:text-blue-950;
+  }
+}
+
+.font-display {
+  font-family: var(--font-geist);
+}
+
+/* Beautiful custom scrollbars for high fidelity */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

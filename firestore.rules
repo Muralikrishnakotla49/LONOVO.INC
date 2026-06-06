@@ -1,0 +1,103 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 1. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Primitive Global Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Validation Helpers
+    function isValidEmployee(data) {
+      return data.id is string
+        && data.id.size() <= 128
+        && data.name is string
+        && data.name.size() <= 200
+        && data.baseSalary is number
+        && data.overtimeHours is number
+        && data.overtimeRate is number
+        && data.deductionRate is number
+        && data.department is string
+        && data.role is string
+        && (data.status == 'Active' || data.status == 'Inactive');
+    }
+
+    function isValidPayrollBatch(data) {
+      return data.id is string
+        && data.id.size() <= 128
+        && data.name is string
+        && data.name.size() <= 200
+        && data.period is string
+        && (data.status == 'Review Hours' || data.status == 'Calculate Deductions' || data.status == 'Finalize Payout')
+        && data.totalEmployees is number
+        && data.grossAmount is number
+        && data.deductionsAmount is number
+        && data.overtimeAmount is number
+        && data.netAmount is number
+        && data.createdAt is string
+        && data.isCompleted is bool;
+    }
+
+    // Employees Collection Rules
+    match /employees/{employeeId} {
+      allow get: if isSignedIn();
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(employeeId) && isValidEmployee(incoming());
+      allow update: if isSignedIn() && isValidEmployee(incoming());
+      allow delete: if isSignedIn();
+    }
+
+    // Batches Collection Rules
+    match /batches/{batchId} {
+      allow get: if isSignedIn();
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(batchId) && isValidPayrollBatch(incoming());
+      allow update: if isSignedIn() && isValidPayrollBatch(incoming());
+      allow delete: if isSignedIn();
+    }
+
+    // Attendance Collection Rules
+    match /attendance/{attendanceId} {
+      allow get: if isSignedIn();
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(attendanceId);
+      allow update: if isSignedIn();
+      allow delete: if isSignedIn();
+    }
+
+    // Payout Logs Collection Rules
+    match /payout_logs/{logId} {
+      allow get: if isSignedIn();
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(logId);
+      allow update: if isSignedIn();
+      allow delete: if isSignedIn();
+    }
+
+    // Settings Collection Rules
+    match /settings/{settingsId} {
+      allow get: if isSignedIn();
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(settingsId);
+      allow update: if isSignedIn();
+      allow delete: if isSignedIn();
+    }
+  }
+}
