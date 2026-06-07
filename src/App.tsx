@@ -98,22 +98,54 @@ export default function App() {
   // States
   const [employees, setEmployees] = useState<Employee[]>(() => {
     const saved = localStorage.getItem('clockwork_employees');
-    return saved ? JSON.parse(saved) : INITIAL_EMPLOYEES;
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.length !== 4 || !parsed.some((e: any) => e.name === 'Spiderman')) {
+        localStorage.removeItem('clockwork_employees');
+        localStorage.removeItem('clockwork_attendance');
+        localStorage.removeItem('clockwork_batch');
+        localStorage.removeItem('clockwork_payout_logs');
+        return INITIAL_EMPLOYEES;
+      }
+      return parsed;
+    }
+    return INITIAL_EMPLOYEES;
   });
 
   const [activeBatch, setActiveBatch] = useState<PayrollBatch>(() => {
     const saved = localStorage.getItem('clockwork_batch');
-    return saved ? JSON.parse(saved) : INITIAL_BATCH;
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.totalEmployees > 4) {
+        return INITIAL_BATCH;
+      }
+      return parsed;
+    }
+    return INITIAL_BATCH;
   });
 
   const [attendanceLogs, setAttendanceLogs] = useState<AttendanceRecord[]>(() => {
     const saved = localStorage.getItem('clockwork_attendance');
-    return saved ? JSON.parse(saved) : INITIAL_ATTENDANCE;
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.length > 4 || !parsed.some((a: any) => a.employeeName === 'Spiderman')) {
+        return INITIAL_ATTENDANCE;
+      }
+      return parsed;
+    }
+    return INITIAL_ATTENDANCE;
   });
 
   const [payoutLogs, setPayoutLogs] = useState<PayoutLog[]>(() => {
     const saved = localStorage.getItem('clockwork_payout_logs');
-    return saved ? JSON.parse(saved) : INITIAL_PAYOUTS;
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.length > 0 && parsed[0].amount > 50000) {
+        return INITIAL_PAYOUTS;
+      }
+      return parsed;
+    }
+    return INITIAL_PAYOUTS;
   });
 
   const [settings, setSettings] = useState<SystemSettings>(() => {
@@ -281,11 +313,11 @@ export default function App() {
     const netTotal = grossTotal + overTimeTotal - deductionsTotal;
 
     const updatedBatchValues = {
-      totalEmployees: activeStaff.length + 130, // Preserve realistic target headcount size from visual mock 
-      grossAmount: grossTotal + 1100000,
-      deductionsAmount: deductionsTotal + 300000,
-      overtimeAmount: overTimeTotal + 10000,
-      netAmount: netTotal + 810000
+      totalEmployees: activeStaff.length,
+      grossAmount: grossTotal,
+      deductionsAmount: deductionsTotal,
+      overtimeAmount: overTimeTotal,
+      netAmount: netTotal
     };
 
     setActiveBatch(prev => ({

@@ -47,7 +47,7 @@ export default function DashboardSection({
   onTabChange
 }: DashboardSectionProps) {
   const [todoList, setTodoList] = useState([
-    { id: 1, text: 'Confirm Lata Hegde Overtime Hours for Oct run', completed: false },
+    { id: 1, text: 'Confirm Batman Overtime Hours for Oct run', completed: false },
     { id: 2, text: 'Validate SBI secure API encryption key', completed: true },
     { id: 3, text: 'Send digital payslips to Design department', completed: false },
     { id: 4, text: 'Update federal pension withholding rate in Settings', completed: false },

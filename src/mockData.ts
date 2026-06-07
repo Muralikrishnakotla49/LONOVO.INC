@@ -8,8 +8,8 @@ import { Employee, AttendanceRecord, PayrollBatch, SystemSettings, PayoutLog } f
 export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: '10042',
-    name: 'Jaya Sharma',
-    initials: 'JS',
+    name: 'Spiderman',
+    initials: 'SM',
     avatarColor: 'bg-blue-100 text-blue-700',
     baseSalary: 8450.00,
     overtimeHours: 6.00,
@@ -21,8 +21,8 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10045',
-    name: 'Madhav Sen',
-    initials: 'MS',
+    name: 'Ironman',
+    initials: 'IM',
     avatarColor: 'bg-orange-100 text-orange-700',
     baseSalary: 6200.00,
     overtimeHours: 0.00,
@@ -34,8 +34,8 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10051',
-    name: 'Lata Hegde',
-    initials: 'LH',
+    name: 'Batman',
+    initials: 'BM',
     avatarColor: 'bg-slate-100 text-slate-700',
     baseSalary: 12000.00,
     overtimeHours: 11.5,
@@ -47,8 +47,8 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10064',
-    name: 'Tarun Wagh',
-    initials: 'TW',
+    name: 'Deadpool',
+    initials: 'DP',
     avatarColor: 'bg-indigo-100 text-indigo-700',
     baseSalary: 7800.00,
     overtimeHours: 0.00,
@@ -57,71 +57,6 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     department: 'Engineering',
     role: 'Backend Developer',
     status: 'Active',
-  },
-  {
-    id: '10072',
-    name: 'Sita Chaudhari',
-    initials: 'SC',
-    avatarColor: 'bg-emerald-100 text-emerald-700',
-    baseSalary: 9100.00,
-    overtimeHours: 4.00,
-    overtimeRate: 75.00, // 300.00
-    deductionRate: 1450.00,
-    department: 'Engineering',
-    role: 'DevOps Lead',
-    status: 'Active',
-  },
-  {
-    id: '10078',
-    name: 'Anil Joseph',
-    initials: 'AJ',
-    avatarColor: 'bg-pink-100 text-pink-700',
-    baseSalary: 5800.00,
-    overtimeHours: 2.50,
-    overtimeRate: 48.00, // 120.00
-    deductionRate: 850.00,
-    department: 'Design',
-    role: 'UI Designer',
-    status: 'Active',
-  },
-  {
-    id: '10085',
-    name: 'Esha Wagle',
-    initials: 'EW',
-    avatarColor: 'bg-purple-100 text-purple-700',
-    baseSalary: 11100.00,
-    overtimeHours: 8.00,
-    overtimeRate: 95.00, // 760.00
-    deductionRate: 2150.00,
-    department: 'Product',
-    role: 'Product Director',
-    status: 'Active',
-  },
-  {
-    id: '10091',
-    name: 'Nikhil Raj',
-    initials: 'NR',
-    avatarColor: 'bg-cyan-100 text-cyan-700',
-    baseSalary: 7200.00,
-    overtimeHours: 0.00,
-    overtimeRate: 60.00,
-    deductionRate: 1050.00,
-    department: 'Engineering',
-    role: 'Frontend Architect',
-    status: 'Active',
-  },
-  {
-    id: '10099',
-    name: 'Karan Bannerjee',
-    initials: 'KB',
-    avatarColor: 'bg-yellow-105 text-yellow-800',
-    baseSalary: 8303.00,
-    overtimeHours: 1.00,
-    overtimeRate: 72.00,
-    deductionRate: 1210.00,
-    department: 'Marketing',
-    role: 'Specialist',
-    status: 'Inactive',
   }
 ];
 
@@ -130,11 +65,11 @@ export const INITIAL_BATCH: PayrollBatch = {
   name: 'Engineering October Run',
   period: 'Oct 2023 Period',
   status: 'Calculate Deductions',
-  totalEmployees: 142, // Representing the target size of the screenshot
-  grossAmount: 1142400.00,
-  deductionsAmount: 312250.00,
-  overtimeAmount: 12450.00,
-  netAmount: 842600.00,
+  totalEmployees: 4, 
+  grossAmount: 34450.00, // 8450 + 6200 + 12000 + 7800
+  deductionsAmount: 5720.00, // 1240 + 980 + 2400 + 1100
+  overtimeAmount: 1570.00, // 6*70 + 0 + 11.5*100 + 0 = 420 + 1150 = 1570
+  netAmount: 30300.00, // gross + overtime - deductions = 34450 + 1570 - 5720 = 30300
   createdAt: '2023-10-20T08:00:00Z',
   isCompleted: false,
 };
@@ -143,7 +78,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_01',
     employeeId: '10042',
-    employeeName: 'Jaya Sharma',
+    employeeName: 'Spiderman',
     date: '2023-10-24',
     clockIn: '08:45 AM',
     clockOut: '05:15 PM',
@@ -153,7 +88,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_02',
     employeeId: '10045',
-    employeeName: 'Madhav Sen',
+    employeeName: 'Ironman',
     date: '2023-10-24',
     clockIn: '09:12 AM',
     clockOut: '05:00 PM',
@@ -163,7 +98,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_03',
     employeeId: '10051',
-    employeeName: 'Lata Hegde',
+    employeeName: 'Batman',
     date: '2023-10-24',
     clockIn: '08:30 AM',
     clockOut: '07:30 PM',
@@ -173,32 +108,12 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_04',
     employeeId: '10064',
-    employeeName: 'Tarun Wagh',
+    employeeName: 'Deadpool',
     date: '2023-10-24',
     clockIn: '08:55 AM',
     clockOut: '05:10 PM',
     totalHours: 8.25,
     status: 'On Time',
-  },
-  {
-    id: 'att_05',
-    employeeId: '10072',
-    employeeName: 'Sita Chaudhari',
-    date: '2023-10-24',
-    clockIn: '08:15 AM',
-    clockOut: '05:45 PM',
-    totalHours: 9.5,
-    status: 'On Time',
-  },
-  {
-    id: 'att_06',
-    employeeId: '10078',
-    employeeName: 'Anil Joseph',
-    date: '2023-10-24',
-    clockIn: '09:35 AM',
-    clockOut: '05:05 PM',
-    totalHours: 7.5,
-    status: 'Late',
   }
 ];
 
