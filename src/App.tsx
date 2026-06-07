@@ -493,7 +493,7 @@ export default function App() {
         {/* Major Workspace Canvas */}
         <main 
           id="main-viewport-pane"
-          className="px-4 lg:px-8 lg:ml-[260px] pt-20 pb-12 transition-all bg-slate-50 min-h-screen"
+          className="px-4 lg:px-8 pt-20 pb-12 transition-all bg-slate-50 min-h-screen"
         >
           {/* Animated Route switching context */}
           <motion.div
