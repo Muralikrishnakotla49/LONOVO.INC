@@ -431,6 +431,8 @@ export default function App() {
       <LoginScreen
         employees={employees}
         onLoginSuccess={handleLoginSuccess}
+        theme={theme}
+        onToggleTheme={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
       />
     );
   }
