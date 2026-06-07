@@ -487,32 +487,13 @@ export default function App() {
           activeBatch={activeBatch}
           attendanceLogs={attendanceLogs}
           onTabChange={setCurrentTab}
+          onMenuClick={() => setMobileSidebarOpen(true)}
         />
-
-        {/* Mobile Navbar Hamburger Header bar for compliance */}
-        <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white border-b border-[#E2E8F0] px-4 flex items-center justify-between z-40" id="mobile-top-bar">
-          <button
-            id="btn-hamburger-mobile"
-            onClick={() => setMobileSidebarOpen(true)}
-            className="p-2 hover:bg-slate-100 rounded text-slate-700 hover:text-slate-900 transition"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
-          
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-black tracking-wide font-display text-blue-600 block">LONOVO.INC</span>
-            <span className="text-[9px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-bold">V2.4</span>
-          </div>
-
-          <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs">
-            AT
-          </div>
-        </div>
 
         {/* Major Workspace Canvas */}
         <main 
           id="main-viewport-pane"
-          className="lg:pl-8 pl-4 lg:ml-[260px] mt-[64px] transition-all bg-slate-50 mr-2"
+          className="px-4 lg:px-8 lg:ml-[260px] pt-20 pb-12 transition-all bg-slate-50 min-h-screen"
         >
           {/* Animated Route switching context */}
           <motion.div
@@ -521,7 +502,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="max-w-[var(--spacing-container-max)] mx-auto"
+            className="max-w-7xl mx-auto"
           >
             {renderSection()}
           </motion.div>

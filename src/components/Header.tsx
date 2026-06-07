@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Search, Bell, ChevronDown, CheckCircle2, Calendar, Cloud, CloudOff, LogIn, LogOut, AlertCircle, IndianRupee, X } from 'lucide-react';
+import { Search, Bell, ChevronDown, CheckCircle2, Calendar, Cloud, CloudOff, LogIn, LogOut, AlertCircle, IndianRupee, X, Menu } from 'lucide-react';
 import { PayrollBatch, AttendanceRecord } from '../types';
 
 interface HeaderProps {
@@ -21,6 +21,7 @@ interface HeaderProps {
   activeBatch?: PayrollBatch;
   attendanceLogs?: AttendanceRecord[];
   onTabChange?: (tab: string) => void;
+  onMenuClick?: () => void;
 }
 
 interface AppNotification {
@@ -45,7 +46,8 @@ export default function Header({
   isSyncing = false,
   activeBatch,
   attendanceLogs = [],
-  onTabChange
+  onTabChange,
+  onMenuClick
 }: HeaderProps) {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showPeriodDropdown, setShowPeriodDropdown] = useState(false);
@@ -107,25 +109,40 @@ export default function Header({
   return (
     <header 
       id="main-header"
-      className="fixed top-0 right-0 left-[260px] h-[64px] bg-white border-b border-slate-200 flex items-center justify-between px-8 z-25"
+      className="fixed top-0 right-0 lg:left-[260px] left-0 h-[64px] bg-white border-b border-slate-200 flex items-center justify-between px-4 lg:px-8 z-40"
     >
-      {/* Search Input Widget */}
-      <div className="relative w-[380px]" id="header-search-container">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-          <Search className="w-4 h-4" />
-        </span>
-        <input
-          id="header-search-input"
-          type="text"
-          placeholder="Search payroll records, slips, or employees..."
-          value={searchQuery}
-          onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full bg-slate-100/50 hover:bg-slate-100/80 focus:bg-white text-sm text-slate-900 pl-10 pr-4 py-1.5 rounded-lg border border-slate-200 focus:border-indigo-600 focus:outline-none transition-all duration-150 font-display"
-        />
+      <div className="flex items-center gap-1.5 flex-1 min-w-0">
+        <button
+          id="btn-hamburger-mobile"
+          onClick={onMenuClick}
+          className="lg:hidden p-2 hover:bg-slate-100 rounded text-slate-700 hover:text-slate-900 transition mr-1 shrink-0"
+        >
+          <Menu className="w-5.5 h-5.5" />
+        </button>
+        
+        <div className="lg:hidden flex items-center gap-1 mr-2 shrink-0">
+          <span className="text-xs font-black tracking-wide font-display text-indigo-600 block">LONOVO.INC</span>
+          <span className="text-[8px] bg-indigo-50 text-indigo-800 px-1.5 py-0.2 rounded font-bold">V2.4</span>
+        </div>
+
+        {/* Search Input Widget */}
+        <div className="relative hidden sm:block w-[180px] md:w-[260px] lg:w-[380px]" id="header-search-container">
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
+            <Search className="w-4 h-4" />
+          </span>
+          <input
+            id="header-search-input"
+            type="text"
+            placeholder="Search payroll, employees..."
+            value={searchQuery}
+            onChange={(e) => onSearchChange(e.target.value)}
+            className="w-full bg-slate-100/50 hover:bg-slate-100/80 focus:bg-white text-xs text-slate-900 pl-10 pr-4 py-1.5 rounded-lg border border-slate-200 focus:border-indigo-655 focus:border-indigo-600 focus:outline-none transition-all duration-150 font-display"
+          />
+        </div>
       </div>
 
       {/* Header Utilities */}
-      <div className="flex items-center gap-6" id="header-actions">
+      <div className="flex items-center gap-2 sm:gap-4 lg:gap-6 shrink-0" id="header-actions">
         {/* Notification Bell */}
         <div className="relative">
           <button
@@ -223,38 +240,38 @@ export default function Header({
         </div>
 
         {/* Firebase Authentication & Live Sync Status */}
-        <div className="flex items-center gap-2 border border-slate-200 bg-slate-50 rounded-lg p-1 px-2.5 text-xs font-display flex-shrink-0" id="db-sync-card">
+        <div className="flex items-center gap-1.5 border border-slate-200 bg-slate-50 rounded-lg p-1 px-1.5 sm:px-2.5 text-xs font-display flex-shrink-0" id="db-sync-card">
           {currentUser ? (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               <span className="flex items-center gap-1 text-emerald-700 font-bold">
                 <Cloud className={`w-3.5 h-3.5 text-emerald-600 ${isSyncing ? 'animate-bounce' : 'animate-pulse'}`} />
-                <span>Cloud Sync Active</span>
+                <span className="hidden md:inline">Cloud Sync</span>
               </span>
-              <div className="h-3 w-[1px] bg-slate-300" />
-              <span className="text-slate-600 font-medium truncate max-w-[120px]" title={currentUser.email || ""}>
+              <div className="h-3 w-[1px] bg-slate-300 hidden md:block" />
+              <span className="text-slate-655 text-slate-600 font-medium truncate max-w-[60px] sm:max-w-[100px] hidden sm:inline" title={currentUser.email || ""}>
                 {currentUser.displayName || currentUser.email}
               </span>
               <button 
                 onClick={onLogout}
                 title="Disconnect from Firebase Sync"
-                className="hover:text-red-600 hover:bg-red-50 text-slate-500 font-bold p-1 rounded transition duration-150 cursor-pointer"
+                className="hover:text-red-650 hover:bg-red-50 text-slate-500 font-bold p-1 rounded transition duration-150 cursor-pointer"
               >
                 <LogOut className="w-3.5 h-3.5" />
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               <span className="flex items-center gap-1 text-amber-600 font-bold">
                 <CloudOff className="w-3.5 h-3.5 text-amber-500" />
-                <span>Local Sandbox</span>
+                <span className="hidden md:inline">Sandbox</span>
               </span>
-              <div className="h-3 w-[1px] bg-slate-200" />
+              <div className="h-3 w-[1px] bg-slate-200 hidden md:block" />
               <button 
                 onClick={onLogin}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-1 px-2.5 rounded text-[10px] uppercase tracking-wider transition duration-150 cursor-pointer flex items-center gap-1"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-1 px-1.5 sm:px-2.5 rounded text-[10px] uppercase tracking-wider transition duration-150 cursor-pointer flex items-center gap-1"
               >
                 <LogIn className="w-3 h-3" />
-                <span>Sync Cloud</span>
+                <span className="hidden sm:inline">Sync</span>
               </button>
             </div>
           )}
