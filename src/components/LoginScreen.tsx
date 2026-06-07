@@ -101,7 +101,6 @@ export default function LoginScreen({ employees, onLoginSuccess }: LoginScreenPr
             <Building className="w-7 h-7" />
           </div>
           <h1 className="text-2xl font-black tracking-tight text-white">LONOVO.INC</h1>
-          <p className="text-xs text-slate-400 font-medium">ClockWork AI Gateway Terminal</p>
         </div>
 
         {/* Tab switchers */}
