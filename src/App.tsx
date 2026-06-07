@@ -48,6 +48,23 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
+  // Theme state (light/dark mode)
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || saved === 'light') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   // Root application authentication session
   const [authSession, setAuthSession] = useState<{
     role: 'ADMIN' | 'EMPLOYEE';
@@ -488,6 +505,8 @@ export default function App() {
           attendanceLogs={attendanceLogs}
           onTabChange={setCurrentTab}
           onMenuClick={() => setMobileSidebarOpen(true)}
+          theme={theme}
+          onToggleTheme={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
         />
 
         {/* Major Workspace Canvas */}

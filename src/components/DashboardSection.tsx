@@ -211,7 +211,7 @@ export default function DashboardSection({
                   data={chartData}
                   margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-slate-200)" vertical={false} />
                   <XAxis 
                     dataKey="day" 
                     stroke="#94a3b8" 
@@ -255,7 +255,7 @@ export default function DashboardSection({
                   <Bar 
                     dataKey="Absent" 
                     name="Absent" 
-                    fill="#cbd5e1" 
+                    fill="var(--color-slate-300)" 
                     radius={[4, 4, 0, 0]} 
                     maxBarSize={40}
                   />

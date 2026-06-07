@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Search, Bell, ChevronDown, CheckCircle2, Calendar, Cloud, CloudOff, LogIn, LogOut, AlertCircle, IndianRupee, X, Menu } from 'lucide-react';
+import { Search, Bell, ChevronDown, CheckCircle2, Calendar, Cloud, CloudOff, LogIn, LogOut, AlertCircle, IndianRupee, X, Menu, Sun, Moon } from 'lucide-react';
 import { PayrollBatch, AttendanceRecord } from '../types';
 
 interface HeaderProps {
@@ -22,6 +22,8 @@ interface HeaderProps {
   attendanceLogs?: AttendanceRecord[];
   onTabChange?: (tab: string) => void;
   onMenuClick?: () => void;
+  theme: 'light' | 'dark';
+  onToggleTheme: () => void;
 }
 
 interface AppNotification {
@@ -47,7 +49,9 @@ export default function Header({
   activeBatch,
   attendanceLogs = [],
   onTabChange,
-  onMenuClick
+  onMenuClick,
+  theme,
+  onToggleTheme
 }: HeaderProps) {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showPeriodDropdown, setShowPeriodDropdown] = useState(false);
@@ -143,6 +147,16 @@ export default function Header({
 
       {/* Header Utilities */}
       <div className="flex items-center gap-2 sm:gap-4 lg:gap-6 shrink-0" id="header-actions">
+        {/* Theme Toggle Button */}
+        <button
+          id="btn-theme-toggle"
+          onClick={onToggleTheme}
+          className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-600 hover:text-slate-900 transition-all font-display cursor-pointer"
+          title={theme === 'light' ? 'Switch to Night Mode' : 'Switch to Light Mode'}
+        >
+          {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+        </button>
+
         {/* Notification Bell */}
         <div className="relative">
           <button
