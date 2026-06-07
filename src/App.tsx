@@ -150,7 +150,15 @@ export default function App() {
 
   const [settings, setSettings] = useState<SystemSettings>(() => {
     const saved = localStorage.getItem('clockwork_settings');
-    return saved ? JSON.parse(saved) : INITIAL_SETTINGS;
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.companyName !== 'S.H.I.E.L.D') {
+        localStorage.removeItem('clockwork_settings');
+        return INITIAL_SETTINGS;
+      }
+      return parsed;
+    }
+    return INITIAL_SETTINGS;
   });
 
   const [selectedPeriod, setSelectedPeriod] = useState(INITIAL_BATCH.period);

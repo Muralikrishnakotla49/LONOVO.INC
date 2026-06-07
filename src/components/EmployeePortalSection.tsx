@@ -91,7 +91,7 @@ export default function EmployeePortalSection({
   // Sync profile edits states when active employee changes/loads
   useEffect(() => {
     if (activeEmployee) {
-      setEditEmail(activeEmployee.email || `${activeEmployee.name.toLowerCase().replace(/\s+/g, '')}@lonovo-inc.com`);
+      setEditEmail(activeEmployee.email || `${activeEmployee.name.toLowerCase().replace(/\s+/g, '')}@shield.gov`);
       setEditPhone(activeEmployee.phone || '+91 98765 43210');
       setEditAddress(activeEmployee.address || '4th Floor, Phase-2, HITEC City, Hyderabad, Telangana - 500081');
       setEditBankName(activeEmployee.bankName || 'State Bank of India (SBI)');
@@ -743,7 +743,7 @@ export default function EmployeePortalSection({
                 {/* Payslip Header */}
                 <div className="flex justify-between items-start border-b border-slate-350 border-slate-320 pb-4">
                   <div>
-                    <h4 className="text-sm font-black tracking-widest text-slate-800">LONOVO.INC PAYROLL DEPT</h4>
+                    <h4 className="text-sm font-black tracking-widest text-slate-800">S.H.I.E.L.D PAYROLL DEPT</h4>
                     <span className="text-[10px] text-slate-400">State Bank of India, Corporate Centre, Madame Cama Road, Mumbai - 400021</span>
                     <div className="text-[10px] text-indigo-600 font-bold mt-1 uppercase">ESTABLISHED DEPOSIT AUDIT TRAIL</div>
                   </div>
@@ -846,7 +846,7 @@ export default function EmployeePortalSection({
                 {/* Sign-off footer inside template */}
                 <div className="flex justify-between items-end pt-6 text-[10px] text-slate-400">
                   <div className="space-y-1 font-sans">
-                    <div>Authorized Compliance: <span className="font-bold text-slate-600">LONOVO Audit Automated Handshake</span></div>
+                    <div>Authorized Compliance: <span className="font-bold text-slate-600">S.H.I.E.L.D Audit Automated Handshake</span></div>
                     <div>Compliance Standard: <span className="font-bold text-slate-600">SBI ACH Secured HANDSHAKE V2.4</span></div>
                   </div>
                   

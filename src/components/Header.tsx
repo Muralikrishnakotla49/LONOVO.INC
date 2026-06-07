@@ -125,7 +125,7 @@ export default function Header({
         </button>
         
         <div className="lg:hidden flex items-center gap-1 mr-2 shrink-0">
-          <span className="text-xs font-black tracking-wide font-display text-indigo-600 block">LONOVO.INC</span>
+          <span className="text-xs font-black tracking-wide font-display text-indigo-600 block">S.H.I.E.L.D</span>
           <span className="text-[8px] bg-indigo-50 text-indigo-800 px-1.5 py-0.2 rounded font-bold">V2.4</span>
         </div>
 

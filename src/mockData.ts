@@ -132,7 +132,7 @@ export const INITIAL_PAYOUTS: PayoutLog[] = [
 ];
 
 export const INITIAL_SETTINGS: SystemSettings = {
-  companyName: 'LONOVO.INC',
+  companyName: 'S.H.I.E.L.D',
   currencySymbol: '₹',
   overtimeMultiplier: 1.5,
   taxRatePercent: 12.00,

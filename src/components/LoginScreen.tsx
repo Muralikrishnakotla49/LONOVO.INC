@@ -39,10 +39,10 @@ export default function LoginScreen({ employees, onLoginSuccess, theme, onToggle
     const trimmedUser = adminUsername.trim().toLowerCase();
     const trimmedPass = adminPassword.trim();
 
-    // Accept admin/admin or admin@lonovo.inc/admin123 as valid administrator credentials
+    // Accept admin/admin or admin@shield.gov/admin123 as valid administrator credentials
     if (
       (trimmedUser === 'admin' && trimmedPass === 'admin') ||
-      (trimmedUser === 'admin@lonovo.inc' && (trimmedPass === 'admin123' || trimmedPass === 'admin'))
+      (trimmedUser === 'admin@shield.gov' && (trimmedPass === 'admin123' || trimmedPass === 'admin'))
     ) {
       onLoginSuccess({
         role: 'ADMIN',
@@ -112,7 +112,7 @@ export default function LoginScreen({ employees, onLoginSuccess, theme, onToggle
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600/10 border border-indigo-500/20 text-indigo-400 mb-2">
             <Building className="w-7 h-7" />
           </div>
-          <h1 className="text-2xl font-black tracking-tight text-slate-900">LONOVO.INC</h1>
+          <h1 className="text-2xl font-black tracking-tight text-slate-900">S.H.I.E.L.D</h1>
         </div>
 
         {/* Tab switchers */}
@@ -165,7 +165,7 @@ export default function LoginScreen({ employees, onLoginSuccess, theme, onToggle
                     id="admin-user"
                     type="text"
                     required
-                    placeholder="e.g. admin@lonovo.inc"
+                    placeholder="e.g. admin@shield.gov"
                     value={adminUsername}
                     onChange={(e) => setAdminUsername(e.target.value)}
                     className="w-full text-xs font-semibold text-slate-900 border border-slate-200 focus:border-indigo-500 focus:outline-none rounded-xl pl-10 pr-3 py-3 bg-slate-50/50 focus:bg-white transition duration-150"
@@ -204,7 +204,7 @@ export default function LoginScreen({ employees, onLoginSuccess, theme, onToggle
                 type="button"
                 id="btn-quick-admin"
                 onClick={() => {
-                  setAdminUsername('admin@lonovo.inc');
+                  setAdminUsername('admin@shield.gov');
                   setAdminPassword('admin');
                 }}
                 className="w-full py-2.5 px-4 border border-indigo-500/20 hover:border-indigo-500/40 bg-indigo-50 hover:bg-indigo-100/50 text-indigo-650 text-indigo-600 rounded-xl text-[10.5px] font-bold tracking-wide transition duration-150 cursor-pointer uppercase flex items-center justify-center gap-1.5"

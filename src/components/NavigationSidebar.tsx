@@ -66,7 +66,7 @@ export default function NavigationSidebar({
             </svg>
           </div>
           <div>
-            <h1 className="text-sm font-bold tracking-wider text-slate-900 font-display" id="brand-title">LONOVO.INC</h1>
+            <h1 className="text-sm font-bold tracking-wider text-slate-900 font-display" id="brand-title">S.H.I.E.L.D</h1>
             <p className="text-[10px] font-medium text-slate-400 tracking-wider uppercase font-display" id="brand-subtitle">Enhanced Digital Work</p>
           </div>
         </div>
