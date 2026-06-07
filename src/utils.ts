@@ -35,11 +35,11 @@ export function calculateEmployeePayroll(employee: Employee) {
 }
 
 /**
- * Generates a unique reference transaction code for SVB payout logs
+ * Generates a unique reference transaction code for SBI payout logs
  */
 export function generateReferenceNumber(): string {
   const randomSuffix = Math.floor(100000 + Math.random() * 90000).toString();
-  return `SVB-${randomSuffix}-X`;
+  return `SBI-${randomSuffix}-X`;
 }
 
 /**

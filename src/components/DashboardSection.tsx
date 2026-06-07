@@ -47,8 +47,8 @@ export default function DashboardSection({
   onTabChange
 }: DashboardSectionProps) {
   const [todoList, setTodoList] = useState([
-    { id: 1, text: 'Confirm Laura Hales Overtime Hours for Oct run', completed: false },
-    { id: 2, text: 'Validate SVB secure API encryption key', completed: true },
+    { id: 1, text: 'Confirm Lata Hegde Overtime Hours for Oct run', completed: false },
+    { id: 2, text: 'Validate SBI secure API encryption key', completed: true },
     { id: 3, text: 'Send digital payslips to Design department', completed: false },
     { id: 4, text: 'Update federal pension withholding rate in Settings', completed: false },
   ]);
@@ -320,7 +320,7 @@ export default function DashboardSection({
                 <span>Ready to execute {activeBatch.period} payroll?</span>
               </h4>
               <p className="text-[11px] text-indigo-800/80 font-display leading-relaxed">
-                All employee hours are compiled. The secure Silicon Valley Bank ACH payout gateway is authorized.
+                All employee hours are compiled. The secure State Bank of India ACH payout gateway is authorized.
               </p>
             </div>
             
@@ -338,7 +338,7 @@ export default function DashboardSection({
         {/* Right Span: Bank Log Transactions */}
         <div className="lg:col-span-12 xl:col-span-5 space-y-6" id="dashboard-grid-right">
           
-          {/* SVB Bank Transfer Logs */}
+          {/* SBI Bank Transfer Logs */}
           <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm" id="bank-transfers-card">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
@@ -346,7 +346,7 @@ export default function DashboardSection({
                 <h3 className="text-sm font-bold text-slate-900 font-display">Transaction Log Ledger</h3>
               </div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-green-700 bg-emerald-50 px-2 py-0.5 border border-emerald-100 rounded">
-                SVB Active
+                SBI Active
               </span>
             </div>
 

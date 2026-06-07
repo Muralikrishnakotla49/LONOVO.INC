@@ -118,7 +118,7 @@ export default function PayrollSection({
         authorizedBy: settings.authorizedOfficerName,
         authorizedAt: new Date().toISOString(),
         referenceNumber: ref,
-        bankName: 'Silicon Valley Bank',
+        bankName: 'State Bank of India',
       };
       
       onAddPayoutLog(newLog);
@@ -494,9 +494,9 @@ export default function PayrollSection({
             <div className="border-t border-slate-100 pt-3" id="summary-footer-box">
               <p className="text-[10px] text-slate-400 font-display text-center leading-relaxed italic">
                 {activeBatch.isCompleted ? (
-                  <span>Approved by {activeBatch.authorizedBy} on {activeBatch.authorizedAt}. Transaction secure callback verified on SVB gateway.</span>
+                  <span>Approved by {activeBatch.authorizedBy} on {activeBatch.authorizedAt}. Transaction secure callback verified on SBI gateway.</span>
                 ) : (
-                  <span>Authorized by Alex Thompson on Oct 24, 2023. Secure API connection to Silicon Valley Bank active.</span>
+                  <span>Authorized by Aditya Trivedi on Oct 24, 2023. Secure API connection to State Bank of India active.</span>
                 )}
               </p>
             </div>
@@ -557,8 +557,8 @@ export default function PayrollSection({
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-display">Confirm SVB Bank Transfer</h3>
-                <p className="text-xs text-slate-400 font-display">Silicon Valley Bank Gateway Connection</p>
+                <h3 className="text-base font-bold text-slate-900 font-display">Confirm SBI Bank Transfer</h3>
+                <p className="text-xs text-slate-400 font-display">State Bank of India Gateway Connection</p>
               </div>
             </div>
 
@@ -578,7 +578,7 @@ export default function PayrollSection({
             </div>
 
             <p className="text-[11px] text-slate-500 leading-relaxed font-display">
-              Executing this gateway transfer will dispatch ACH/Wire payloads immediately to Silicon Valley Bank. This action forms a binding transaction log and cannot be undone once confirmed.
+              Executing this gateway transfer will dispatch ACH/Wire payloads immediately to State Bank of India. This action forms a binding transaction log and cannot be undone once confirmed.
             </p>
 
             <div className="flex items-center justify-end gap-3 pt-2" id="modal-action-buttons">

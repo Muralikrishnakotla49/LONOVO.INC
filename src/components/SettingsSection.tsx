@@ -201,7 +201,7 @@ export default function SettingsSection({
 
             <div className="flex items-center justify-between p-3 border border-slate-100 bg-slate-50/55 rounded-lg" id="settings-svb-toggle-container">
               <div>
-                <h4 className="text-xs font-bold text-slate-800">Silicon Valley Bank</h4>
+                <h4 className="text-xs font-bold text-slate-800">State Bank of India</h4>
                 <p className="text-[10px] text-slate-400">Secure XML ACH Handshakes</p>
               </div>
 

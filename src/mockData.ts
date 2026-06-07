@@ -8,8 +8,8 @@ import { Employee, AttendanceRecord, PayrollBatch, SystemSettings, PayoutLog } f
 export const INITIAL_EMPLOYEES: Employee[] = [
   {
     id: '10042',
-    name: 'Jane Doe',
-    initials: 'JD',
+    name: 'Jaya Sharma',
+    initials: 'JS',
     avatarColor: 'bg-blue-100 text-blue-700',
     baseSalary: 8450.00,
     overtimeHours: 6.00,
@@ -21,7 +21,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10045',
-    name: 'Marcus Smith',
+    name: 'Madhav Sen',
     initials: 'MS',
     avatarColor: 'bg-orange-100 text-orange-700',
     baseSalary: 6200.00,
@@ -34,7 +34,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10051',
-    name: 'Laura Hales',
+    name: 'Lata Hegde',
     initials: 'LH',
     avatarColor: 'bg-slate-100 text-slate-700',
     baseSalary: 12000.00,
@@ -47,7 +47,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10064',
-    name: 'Tim Wu',
+    name: 'Tarun Wagh',
     initials: 'TW',
     avatarColor: 'bg-indigo-100 text-indigo-700',
     baseSalary: 7800.00,
@@ -60,7 +60,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10072',
-    name: 'Sarah Connor',
+    name: 'Sita Chaudhari',
     initials: 'SC',
     avatarColor: 'bg-emerald-100 text-emerald-700',
     baseSalary: 9100.00,
@@ -73,7 +73,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10078',
-    name: 'Alex Johnson',
+    name: 'Anil Joseph',
     initials: 'AJ',
     avatarColor: 'bg-pink-100 text-pink-700',
     baseSalary: 5800.00,
@@ -86,7 +86,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10085',
-    name: 'Emily Watson',
+    name: 'Esha Wagle',
     initials: 'EW',
     avatarColor: 'bg-purple-100 text-purple-700',
     baseSalary: 11100.00,
@@ -112,8 +112,8 @@ export const INITIAL_EMPLOYEES: Employee[] = [
   },
   {
     id: '10099',
-    name: 'Chloe Benoit',
-    initials: 'CB',
+    name: 'Karan Bannerjee',
+    initials: 'KB',
     avatarColor: 'bg-yellow-105 text-yellow-800',
     baseSalary: 8303.00,
     overtimeHours: 1.00,
@@ -143,7 +143,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_01',
     employeeId: '10042',
-    employeeName: 'Jane Doe',
+    employeeName: 'Jaya Sharma',
     date: '2023-10-24',
     clockIn: '08:45 AM',
     clockOut: '05:15 PM',
@@ -153,7 +153,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_02',
     employeeId: '10045',
-    employeeName: 'Marcus Smith',
+    employeeName: 'Madhav Sen',
     date: '2023-10-24',
     clockIn: '09:12 AM',
     clockOut: '05:00 PM',
@@ -163,7 +163,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_03',
     employeeId: '10051',
-    employeeName: 'Laura Hales',
+    employeeName: 'Lata Hegde',
     date: '2023-10-24',
     clockIn: '08:30 AM',
     clockOut: '07:30 PM',
@@ -173,7 +173,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_04',
     employeeId: '10064',
-    employeeName: 'Tim Wu',
+    employeeName: 'Tarun Wagh',
     date: '2023-10-24',
     clockIn: '08:55 AM',
     clockOut: '05:10 PM',
@@ -183,7 +183,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_05',
     employeeId: '10072',
-    employeeName: 'Sarah Connor',
+    employeeName: 'Sita Chaudhari',
     date: '2023-10-24',
     clockIn: '08:15 AM',
     clockOut: '05:45 PM',
@@ -193,7 +193,7 @@ export const INITIAL_ATTENDANCE: AttendanceRecord[] = [
   {
     id: 'att_06',
     employeeId: '10078',
-    employeeName: 'Alex Johnson',
+    employeeName: 'Anil Joseph',
     date: '2023-10-24',
     clockIn: '09:35 AM',
     clockOut: '05:05 PM',
@@ -209,10 +209,10 @@ export const INITIAL_PAYOUTS: PayoutLog[] = [
     batchName: 'Engineering September Run',
     period: 'Sep 2023 Period',
     amount: 821400.00,
-    authorizedBy: 'Alex Thompson',
+    authorizedBy: 'Aditya Trivedi',
     authorizedAt: '2023-09-24T14:35:00Z',
-    referenceNumber: 'SVB-883921-X',
-    bankName: 'Silicon Valley Bank',
+    referenceNumber: 'SBI-883921-X',
+    bankName: 'State Bank of India',
   }
 ];
 
@@ -224,7 +224,7 @@ export const INITIAL_SETTINGS: SystemSettings = {
   healthInsurancePercent: 2.5,
   pensionPercent: 3.5,
   svbBankConnected: true,
-  authorizedOfficerName: 'Alex Thompson',
+  authorizedOfficerName: 'Aditya Trivedi',
   authorizedOfficerRole: 'ADMINISTRATOR',
   lastSyncTime: '2026-06-06T10:33:49Z'
 };

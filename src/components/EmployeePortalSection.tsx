@@ -92,11 +92,11 @@ export default function EmployeePortalSection({
   useEffect(() => {
     if (activeEmployee) {
       setEditEmail(activeEmployee.email || `${activeEmployee.name.toLowerCase().replace(/\s+/g, '')}@lonovo-inc.com`);
-      setEditPhone(activeEmployee.phone || '+1 (555) 349-2041');
-      setEditAddress(activeEmployee.address || '120 San Carlos Dr, Palo Alto, CA');
-      setEditBankName(activeEmployee.bankName || 'Silicon Valley Bank (SVB)');
+      setEditPhone(activeEmployee.phone || '+91 98765 43210');
+      setEditAddress(activeEmployee.address || '4th Floor, Phase-2, HITEC City, Hyderabad, Telangana - 500081');
+      setEditBankName(activeEmployee.bankName || 'State Bank of India (SBI)');
       setEditBankAccount(activeEmployee.bankAccount || '•••• •••• 4125');
-      setEditBankRouting(activeEmployee.bankRouting || '021000021');
+      setEditBankRouting(activeEmployee.bankRouting || 'SBIN0001234');
     }
   }, [activeEmployee]);
 
@@ -698,19 +698,19 @@ export default function EmployeePortalSection({
                 <div className="space-y-1.5 text-xs text-slate-600">
                   <div className="flex justify-between">
                     <span>Clearing Bank:</span>
-                    <span className="font-bold text-slate-800">{activeEmployee.bankName || 'Silicon Valley Bank (SVB)'}</span>
+                    <span className="font-bold text-slate-800">{activeEmployee.bankName || 'State Bank of India (SBI)'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Account Number:</span>
                     <span className="font-bold font-mono text-slate-800">{activeEmployee.bankAccount || '•••• •••• 4125'}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Routing Number:</span>
-                    <span className="font-bold font-mono text-slate-800">{activeEmployee.bankRouting || '021000021'}</span>
+                    <span>IFSC Code:</span>
+                    <span className="font-bold font-mono text-slate-800">{activeEmployee.bankRouting || 'SBIN0001234'}</span>
                   </div>
                 </div>
                 <p className="text-[10px] text-slate-405 text-slate-400 leading-tight">
-                  Account is linked via SVB XML Core clearing protocols. For bank routing changes, request double-signed compliance update in Profile.
+                  Account is linked via SBI XML Core clearing protocols. For bank routing changes, request double-signed compliance update in Profile.
                 </p>
               </div>
 
@@ -744,7 +744,7 @@ export default function EmployeePortalSection({
                 <div className="flex justify-between items-start border-b border-slate-350 border-slate-320 pb-4">
                   <div>
                     <h4 className="text-sm font-black tracking-widest text-slate-800">LONOVO.INC PAYROLL DEPT</h4>
-                    <span className="text-[10px] text-slate-400">100 Silicon Valley Blvd, Santa Clara, CA</span>
+                    <span className="text-[10px] text-slate-400">State Bank of India, Corporate Centre, Madame Cama Road, Mumbai - 400021</span>
                     <div className="text-[10px] text-indigo-600 font-bold mt-1 uppercase">ESTABLISHED DEPOSIT AUDIT TRAIL</div>
                   </div>
                   <div className="text-right">
@@ -847,7 +847,7 @@ export default function EmployeePortalSection({
                 <div className="flex justify-between items-end pt-6 text-[10px] text-slate-400">
                   <div className="space-y-1 font-sans">
                     <div>Authorized Compliance: <span className="font-bold text-slate-600">LONOVO Audit Automated Handshake</span></div>
-                    <div>Compliance Standard: <span className="font-bold text-slate-600">SVB ACH Secured HANDSHAKE V2.4</span></div>
+                    <div>Compliance Standard: <span className="font-bold text-slate-600">SBI ACH Secured HANDSHAKE V2.4</span></div>
                   </div>
                   
                   <div className="text-right border-t border-slate-300 w-44 pt-1 font-sans font-bold text-slate-500">

@@ -44,7 +44,7 @@ export default function LoginScreen({ employees, onLoginSuccess }: LoginScreenPr
     ) {
       onLoginSuccess({
         role: 'ADMIN',
-        userName: 'Alex Thompson',
+        userName: 'Aditya Trivedi',
         userRole: 'ADMINISTRATOR'
       });
     } else {
